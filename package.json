@@ -3,16 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "watch:start": "node ./client/app.js",
+    "watch:server": "node ./server/server.js",
+    "dev": "concurrently npm:watch:*"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "eslint": "^8.6.0",
     "jest": "^27.4.7"
   },
   "dependencies": {
+    "dotenv": "^12.0.3",
     "express": "^4.17.2",
     "sequelize": "^6.13.0",
     "sqlite3": "^5.0.2"
