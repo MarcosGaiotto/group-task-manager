@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles/index.css" rel="stylesheet" type="text/css">
     <title>Gerenciador de Tarefas em Grupo</title>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li>Dashboard</li>
-                <li>Novo grupo</li>
-                <li>Hoje</li>
+        <nav class="navbar">
+            <ul class="navbar-options list">
+                <li class="navbar-item">Dashboard</li>
+                <li class="navbar-item">Novo grupo</li>
+                <li class="navbar-item">Hoje</li>
             </ul>
         </nav>
         <div class="user-area">
@@ -21,12 +24,33 @@
                 <%- include ('../src/images/bell_icon.svg') %>
             </div>
             <div class="user-info">
-              
+              Marcos Gaiotto
             </div>
         </div>
     </header>
-    <main>
-
+    <main class="main-content">
+        <aside class="aside-menu">
+            <p class="menu-title">Grupos</p>
+            <ul class="menu-navbar list">
+                <li class="menu-item">Grupo1</li>
+                <li class="menu-item">Grupo2</li>
+                <li class="menu-item">Grupo3</li>
+                <li class="menu-item">Grupo4</li>
+                <li class="menu-item">Grupo5</li>
+                <li class="menu-item">Grupo6</li>
+                <li class="menu-item">Grupo7</li>
+            </ul>
+        </aside>
+        <div class="tasks-dashboard">
+            <ul class="task-list list">
+                <li class="task-item"></li>
+                <li class="task-item"></li>
+                <li class="task-item"></li>
+                <li class="task-item"></li>
+                <li class="task-item"></li>
+                <li class="task-item"></li>
+            </ul>
+        </div>
     </main>
     <footer>
 
