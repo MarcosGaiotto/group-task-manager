@@ -18,6 +18,6 @@ app.set('view engine', 'ejs');
 
 
 
-app.use('/', routes).listen(process.env.CLIENT_PORT, () => {
+app.use('/', express.json(), routes).listen(process.env.CLIENT_PORT, () => {
 	console.log('Starting Client on', process.env.CLIENT_PORT, '...');
 });

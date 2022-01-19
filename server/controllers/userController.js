@@ -25,7 +25,7 @@ const userController = {
 	login: async function(req, res) {
 		const selectedUser = await User.findOne({where: {email: req.body.email}});
 		if(!selectedUser) return res.status(400).send('Invalid username or password');
-
+		
 		const passwordAndUserMatch = bcrypt.compareSync(req.body.password, selectedUser.password);
 		if(!passwordAndUserMatch) return res.status(400).send('Invalid username or password');
 

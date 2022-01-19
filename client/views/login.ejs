@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form id="login-form" name="login-form">
+        <label for="email">Login</label>
+        <input type="text" id="email" name="email">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Submit" id="submitButton">
+    </form>
+    <span id="message"></span>
+    <script>
+        async function submitForm() {
+            let message = document.getElementById("message");
+            let data = new FormData(form);
+            await fetch('login', {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },           
+                body: JSON.stringify({"email":data.get('email'), "password":data.get('password')})
+            })
+            .then((response) => {
+                if(response.status != 200) throw new Error(response.headers.get('message'));
+                localStorage.setItem("authorization-token", response.headers.get("authorization-token"));
+                window.location.href = '/?token=' + response.headers.get('authorization-token')
+            })
+            .catch((err) => {
+                message.innerText = err;
+                console.log(err);
+		    });
+        }
+        let form = document.getElementById('login-form');
+        form.addEventListener('submit',(e) => {
+            e.preventDefault();
+            submitForm();
+        })
+    </script>
+</body>
+</html>

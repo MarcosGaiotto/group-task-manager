@@ -24,7 +24,7 @@
                 <%- include ('../src/images/bell_icon.svg') %>
             </div>
             <div class="user-info">
-              Marcos Gaiotto
+              <p><%=user%></p>
             </div>
         </div>
     </header>
@@ -55,5 +55,15 @@
     <footer>
 
     </footer>
+
+    <% if (!user) { %>
+        <script>
+            if (localStorage.getItem('authorization-token') && 
+                localStorage.getItem('authorization-token') != null &&
+                    localStorage.getItem('authorization-token' != undefined)) {
+                        window.location.href = '/?token=' + localStorage.getItem('authorization-token')
+            } else window.location.href = '/auth/login'           
+        </script>
+    <% } %>
 </body>
 </html>
