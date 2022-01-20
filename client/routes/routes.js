@@ -6,7 +6,6 @@ const routes = express.Router();
 
 
 routes.get('/', async (req, res) => {
-	console.log(req.header['Authorization-token']);
 	if(req.query.token){
 		let config = {
 			headers: {
