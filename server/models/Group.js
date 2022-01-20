@@ -23,6 +23,9 @@ const groupSchema = database.define('group', {
 			model: 'users',
 			key: 'id'
 		}
+	},
+	users: {
+		type: Sequelize.ARRAY
 	}
 });
 
