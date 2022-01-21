@@ -20,12 +20,14 @@ const groupSchema = database.define('group', {
 		required: true,
 		allowNull: false,
 		references: {
-			model: 'users',
+			model: 'User',
 			key: 'id'
 		}
 	},
 	users: {
-		type: Sequelize.ARRAY
+		type: Sequelize.STRING,
+		minLength: 1,
+		maxLength: 300
 	}
 });
 
