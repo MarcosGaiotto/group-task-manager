@@ -32,13 +32,9 @@
         <aside class="aside-menu">
             <p class="menu-title">Grupos</p>
             <ul class="menu-navbar list">
-                <li class="menu-item">Grupo1</li>
-                <li class="menu-item">Grupo2</li>
-                <li class="menu-item">Grupo3</li>
-                <li class="menu-item">Grupo4</li>
-                <li class="menu-item">Grupo5</li>
-                <li class="menu-item">Grupo6</li>
-                <li class="menu-item">Grupo7</li>
+                <% groups.forEach((e) => { %>
+                    <li class="menu-item" id=<%=e.id%>><%=e.name%></li>
+                <% }) %>
             </ul>
         </aside>
         <div class="tasks-dashboard">

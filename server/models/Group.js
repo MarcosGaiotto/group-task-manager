@@ -20,7 +20,7 @@ const groupSchema = database.define('group', {
 		required: true,
 		allowNull: false,
 		references: {
-			model: 'User',
+			model: 'users',
 			key: 'id'
 		}
 	},
