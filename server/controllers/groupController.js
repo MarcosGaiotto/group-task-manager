@@ -30,7 +30,7 @@ const groupController = {
 			}
 		},);
 		if(!getResult) return res.status(400).send('No results');
-		else res.send(getResult);
+		res.send(getResult);
 	},
 
 	delete: async function(req, res) {

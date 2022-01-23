@@ -28,7 +28,6 @@ routes.get('/', async (req, res) => {
 				.catch((err) => {
 					console.error(err);
 				});
-			console.log(userGroups);
 			if (!userGroups) res.send('Error');
 			else res.render('index', {user: userAuth.name, token: req.query.token, groups: userGroups});
 		}
