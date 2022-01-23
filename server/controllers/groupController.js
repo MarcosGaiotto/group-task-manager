@@ -34,7 +34,14 @@ const groupController = {
 	},
 
 	delete: async function(req, res) {
-
+		await database.sync();
+		const deleteResult = await Group.findOne({
+			where: { id: req.body.id }
+		});
+		if(!deleteResult) return res.status(404).send('Group not found');
+		if(deleteResult.createdBy != req.user.id) return res.status(404).send('You don\'t have permission to delete this group');
+		await deleteResult.destroy();
+		res.send('Success');
 	}
 };
 
