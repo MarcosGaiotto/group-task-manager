@@ -27,6 +27,9 @@ const userSchema = database.define('user', {
 		required: true,
 		minLength: 6,
 		maxLength: 200
+	},
+	groups: {
+		type: Sequelize.JSON,
 	}
 });
  

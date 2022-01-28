@@ -29,7 +29,7 @@ const userController = {
 		const passwordAndUserMatch = bcrypt.compareSync(req.body.password, selectedUser.password);
 		if(!passwordAndUserMatch) return res.status(400).send('Invalid username or password');
 
-		const token = jwt.sign({id: selectedUser.id, name: selectedUser.name, email: selectedUser.email}, process.env.TOKEN_SECRET);
+		const token = jwt.sign({id: selectedUser.id, name: selectedUser.name, email: selectedUser.email, groups: selectedUser.groups}, process.env.TOKEN_SECRET);
 
 		res.header('authorization-token', token);
 		res.send('User logged');

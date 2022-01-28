@@ -24,7 +24,7 @@
                 <%- include ('../src/images/bell_icon.svg') %>
             </div>
             <div class="user-info">
-              <p><%=user%></p>
+              <p><%=user.name%></p>
             </div>
         </div>
     </header>
@@ -32,9 +32,7 @@
         <aside class="aside-menu">
             <p class="menu-title">Grupos</p>
             <ul class="menu-navbar list">
-                <% groups.forEach((e) => { %>
-                    <li class="menu-item" id=<%=e.id%>><%=e.name%></li>
-                <% }) %>
+       
             </ul>
         </aside>
         <div class="tasks-dashboard">
@@ -61,5 +59,8 @@
             } else window.location.href = '/auth/login'           
         </script>
     <% } %>
+    <script>
+        const groups = "<%=JSON.parse(user.groups)%>"
+    </script>
 </body>
 </html>

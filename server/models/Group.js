@@ -24,10 +24,8 @@ const groupSchema = database.define('group', {
 			key: 'id'
 		}
 	},
-	users: {
-		type: Sequelize.STRING,
-		minLength: 1,
-		maxLength: 300
+	tasks: {
+		type: Sequelize.JSON,
 	}
 });
 

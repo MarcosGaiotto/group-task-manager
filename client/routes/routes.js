@@ -20,17 +20,7 @@ routes.get('/', async (req, res) => {
 				console.error(err);
 			});
 		if(!userAuth) res.send('Error');
-		else {
-			const userGroups = await axios.get('http://localhost:3000/auth/group/get', config)
-				.then(response => {
-					return response.data;
-				})
-				.catch((err) => {
-					console.error(err);
-				});
-			if (!userGroups) res.send('Error');
-			else res.render('index', {user: userAuth.name, token: req.query.token, groups: userGroups});
-		}
+		else res.render('index', {user: userAuth, token: req.query.token});
 	} else res.render('index', {user: '', token: ''});
 });
 

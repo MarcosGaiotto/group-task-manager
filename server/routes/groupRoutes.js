@@ -6,7 +6,6 @@ const routes = express.Router();
 
 routes.post('/create', groupController.create);
 routes.post('/delete', groupController.delete);
-routes.get('/get', groupController.getGroups);
 
 
 export default routes;
