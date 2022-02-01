@@ -32,7 +32,9 @@
         <aside class="aside-menu">
             <p class="menu-title">Grupos</p>
             <ul class="menu-navbar list">
-       
+                <% user.groups.forEach((group) => { %>
+                    <li class="menu-item" id=<%=group.id%>><%=group.name%></li>
+                <% }) %>
             </ul>
         </aside>
         <div class="tasks-dashboard">

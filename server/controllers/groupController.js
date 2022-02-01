@@ -53,6 +53,26 @@ const groupController = {
 		} catch (err) {
 			res.status(400).send(err);
 		}
+	},
+
+	getGroups: async function (req, res) {
+		try {
+			const groupsArray = JSON.parse(req.user.groups).map((g) => {
+				return g.id;
+			});
+			await database.sync();
+			const op = Sequelize.Op;
+			const getGroupsResult = await Group.findAll({
+				where: {
+					id: {
+						[op.or]: groupsArray
+					}
+				}
+			});
+			res.send(getGroupsResult);
+		} catch (err) {
+			res.status(400).send(err);
+		}
 	}
 };
 
